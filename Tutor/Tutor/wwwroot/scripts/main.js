@@ -39,13 +39,13 @@ buttons.Backend.addEventListener('click', () => {
 buttons.Frontend.addEventListener('click', () => {
     ShowSubcategories('Frontend');
 })
-buttons.Frontend.addEventListener('click', () => {
+buttons.DB.addEventListener('click', () => {
     ShowSubcategories('DB');
 })
-buttons.Frontend.addEventListener('click', () => {
+buttons.Software.addEventListener('click', () => {
     ShowSubcategories('Software');
 })
-buttons.Frontend.addEventListener('click', () => {
+buttons.VersionControl.addEventListener('click', () => {
     ShowSubcategories('Version Control');
 })
 
@@ -54,7 +54,13 @@ let linksDiv = document.getElementById('links');
 
 
 function ShowSubcategories(Category) {
-
+    console.log(Category);
+    while (subcategoriesDiv.firstChild) {
+        subcategoriesDiv.removeChild(subcategoriesDiv.firstChild)
+    }
+    while (linksDiv.firstChild) {
+        linksDiv.removeChild(linksDiv.firstChild)
+    }
     let linksInThisCategory = links.filter(l => l.Category == Category);
     console.log(linksInThisCategory);
     for (var i = 0; i < linksInThisCategory.length; i++) {
@@ -77,7 +83,9 @@ function ShowSubcategories(Category) {
 }
 
 function ShowLinks(Category, SubCategory) {
-
+    while (linksDiv.firstChild) {
+        linksDiv.removeChild(linksDiv.firstChild)
+    }
     let linksInThisSubCategory = links.filter(l => l.Category == Category && l.SubCategory == SubCategory);
 
     for (var link of linksInThisSubCategory) {
