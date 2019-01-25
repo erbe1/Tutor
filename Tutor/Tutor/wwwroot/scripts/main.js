@@ -145,7 +145,7 @@ function ShowLinks(Category = null, SubCategory = null, SearchTag = null) {
     console.log(SearchTag);
 
 
-    let linksInThisSubCategory = links.filter(l => (Category == null || l.Category == Category) && (SubCategory == null || l.SubCategory == SubCategory) && (SearchTag == null || l.Tag.includes(SearchTag)));
+    let linksInThisSubCategory = links.filter(l => (Category == null || l.Category == Category) && (SubCategory == null || l.SubCategory == SubCategory) && (SearchTag == null || l.Tag.includes(SearchTag) || l.SubCategory.includes(SearchTag) || l.Category.includes(SearchTag) || l.Titel.includes(SearchTag)));
 
     if (linksInThisSubCategory.length > 0) {
         for (let link of linksInThisSubCategory) {
