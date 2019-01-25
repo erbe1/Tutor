@@ -66,3 +66,7 @@
 .container-fluid {
     /*background-color: black;*/
 }
+#logo {
+    cursor: pointer;
+    /*background-color:black;*/
+}

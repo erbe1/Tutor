@@ -61,17 +61,37 @@ buttons.SearchField.addEventListener('change', () => {
 let subcategoriesDiv = document.getElementById('subcategories');
 let linksDiv = document.getElementById('links');
 
+let aboutThisAwesomePage = document.getElementById('about');
+
+let logo = document.getElementById('logo');
+logo.addEventListener('click', () => {
+    aboutThisAwesomePage.classList.remove("d-none");
+    aboutThisAwesomePage.classList.add("d-block");
+
+    subcategoriesDiv.classList.remove("d-block");
+    subcategoriesDiv.classList.add("d-none");
+
+    linksDiv.classList.remove("d-block");
+    linksDiv.classList.add("d-none");
+});
+
 function showSearchResults(searchstring) {
     //linksDiv.classList.add("d-block");
     ShowLinks(null, null, searchstring);
 }
 
+
+
 function ShowSubcategories(Category) {
+    aboutThisAwesomePage.classList.remove("d-block");
+    aboutThisAwesomePage.classList.add("d-none");
+
     subcategoriesDiv.classList.remove("d-none");
     subcategoriesDiv.classList.add("d-block");
 
     linksDiv.classList.remove("d-block");
     linksDiv.classList.add("d-none");
+
 
     while (subcategoriesDiv.firstChild) {
         subcategoriesDiv.removeChild(subcategoriesDiv.firstChild)
