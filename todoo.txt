@@ -1,9 +1,3 @@
 
 
-6 - Generellt spacing/marginaler/padding
-7 - Färgschema
-
 9 - Antingen gömma sidebar eller åtminstone 
-10 - Embedded videos
-
-14 - Lägga till reklamlänk till Academy!

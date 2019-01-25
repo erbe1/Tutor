@@ -114,7 +114,7 @@ function ShowSubcategories(Category) {
     for (let i = 0; i < uniqeSubCategories.length; i++) {
 
         let subcategoryButton = document.createElement('button');
-        subcategoryButton.classList.add("btn", "btn-primary", "btn-lg", "m-2");
+        subcategoryButton.classList.add("btn", "btn-outline-secondary", "btn-lg", "m-2");
         subcategoryButton.classList.add("d-inline-block");
 
         subcategoryButton.appendChild(document.createTextNode(uniqeSubCategories[i])); // lägger till en text med subkategorinamnet
