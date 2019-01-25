@@ -25,12 +25,87 @@
                 <h3>Bootstrap Sidebar</h3>
             </div>
 
-            <div class="container mb-3">
-                <input type="text" class="form-control form-control-lg list-group-item" placeholder="Search" aria-label="" aria-describedby="basic-addon1" id="searchField">
-                <button class="btn btn-lg  btn-block btn-outline-secondary" type="button" id="searchButton">Search</button>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">Search</button>
+                </div>
             </div>
 
 
+<<<<<<< HEAD
+            <ul class="list-unstyled components">
+
+                <!--<li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-home"></i>
+                        C#
+                    </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>-->
+                <!--Bortkommenterat drop-down-meny-exempel-->
+                <li>
+                    <button class="btn btn-outline-secondary" type="button" id="Backend">
+                        <i class="fas fa-cogs"></i>
+                        Backend
+                    </button>
+                </li>
+                <li>
+                    <button class="btn btn-outline-secondary" type="button" id="Frontend">
+                        <i class="fas fa-paint-brush"></i>
+                        Frontend
+                    </button>
+                </li>
+                <li>
+                    <button class="btn btn-outline-secondary" type="button" id="DB">
+                        <i class="fas fa-database"></i>
+                        DB
+                    </button>
+                </li>
+                <li>
+                    <button class="btn btn-outline-secondary" type="button" id="Software">
+                        <i class="fas fa-edit"></i>
+                        Software
+                    </button>
+                </li>
+                <li>
+                    <button class="btn btn-outline-secondary" type="button" id="VersionControl">
+                        <i class="fab fa-git-square"></i>
+                        Version control
+                    </button>
+                </li>
+            </ul>
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div class="container-fluid offset-md-1 mt-5">
+            <div class="row justify-content-md-center">
+                <div class="div">
+                    <div class="col">
+                        <div class="jumbotron d-none" id="subcategories">
+                        </div>
+                    </div>
+
+                    <div class="w-100"></div>
+                    <div class="col">
+                        <div class="jumbotron d-none" id="links">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+=======
             <div class="container">
                 <ul class="list-unstyled components">
 
@@ -83,26 +158,23 @@
                         </button>
                     </li>
                 </ul>
-            </div>
+    </div>
 
-        </nav>
+    </nav>
 
-        <!-- Page Content  -->
-        <div class="container-fluid offset-md-1 mt-5">
-            <div class="row justify-content-md-center">
-                <div class="div">
-                    <div class="col">
-                        <div class="jumbotron d-none" id="subcategories">
-                        </div>
-                    </div>
-                    <div class="w-100"></div>
-                    <div class="col">
-                        <div class="jumbotron d-none" id="links">
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Page Content  -->
+    <div id="content">
+        <div class="jumbotron ml-5 mt-2" id="subcategories">
+
         </div>
+    </div>
+    <div id="content">
+        <div class="jumbotron ml-5 mt-2 d-block" id="links">
+
+        </div>
+    </div>
+    </div>
+>>>>>>> origin/master
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

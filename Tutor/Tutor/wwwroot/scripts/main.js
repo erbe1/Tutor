@@ -29,7 +29,10 @@ let buttons = {
     Frontend: document.getElementById('Frontend'),
     DB: document.getElementById('DB'),
     Software: document.getElementById('Software'),
-    VersionControl: document.getElementById('VersionControl')
+    VersionControl: document.getElementById('VersionControl'),
+    SearchButton: document.getElementById('searchButton'),
+    SearchField: document.getElementById('searchField')
+
 };
 
 
@@ -48,10 +51,20 @@ buttons.Software.addEventListener('click', () => {
 buttons.VersionControl.addEventListener('click', () => {
     ShowSubcategories('Version control');
 })
+buttons.SearchButton.addEventListener('click', () => {
+    showSearchResults(buttons.SearchField.value)
+})
+buttons.SearchField.addEventListener('change', () => {
+    showSearchResults(buttons.SearchField.value)
+})
 
 let subcategoriesDiv = document.getElementById('subcategories');
 let linksDiv = document.getElementById('links');
 
+function showSearchResults(searchstring) {
+    //linksDiv.classList.add("d-block");
+    ShowLinks(null, null, searchstring);
+}
 
 function ShowSubcategories(Category) {
     subcategoriesDiv.classList.remove("d-none");
@@ -79,6 +92,8 @@ function ShowSubcategories(Category) {
 
         let subcategoryButton = document.createElement('button');
         subcategoryButton.classList.add("btn", "btn-primary", "btn-lg", "m-2");
+        subcategoryButton.classList.add("d-inline-block");
+
         subcategoryButton.appendChild(document.createTextNode(uniqeSubCategories[i])); // lägger till en text med subkategorinamnet
 
         subcategoriesDiv.appendChild(subcategoryButton);
@@ -87,7 +102,6 @@ function ShowSubcategories(Category) {
         subcategoryButton.SubCategory = uniqeSubCategories[i];
 
         subcategoryButton.addEventListener('click', () => {
-            console.log(i);
             ShowLinks(subcategoryButton.Category, subcategoryButton.SubCategory);
         })
     }
@@ -96,14 +110,21 @@ function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 }
 
-function ShowLinks(Category, SubCategory) {
+function ShowLinks(Category = null, SubCategory = null, SearchTag = null) {
+
     while (linksDiv.firstChild) {
         linksDiv.removeChild(linksDiv.firstChild)
     }
+    linksDiv.classList.remove("d-none");
     linksDiv.classList.add("d-block");
-    let linksInThisSubCategory = links.filter(l => l.Category == Category && l.SubCategory == SubCategory);
+    console.log(Category);
+    console.log(SubCategory);
+    console.log(SearchTag);
 
-    for (var link of linksInThisSubCategory) {
+
+    let linksInThisSubCategory = links.filter(l => (Category == null || l.Category == Category) && (SubCategory == null || l.SubCategory == SubCategory) && (SearchTag == null || l.Tag.includes(SearchTag)));
+
+    for (let link of linksInThisSubCategory) {
 
         let linkElement = createLinkElementToDisplay(link);
 
@@ -127,8 +148,8 @@ function createLinkElementToDisplay(link) {
     linkAdress.target = "_blank";
     linkAdress.appendChild(title);
     elementToDisplay.appendChild(linkAdress);
-    elementToDisplay.appendChild(showDescription);  
-    
+    elementToDisplay.appendChild(showDescription);
+
 
     return elementToDisplay;
 }
