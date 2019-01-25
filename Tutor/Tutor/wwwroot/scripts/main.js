@@ -45,7 +45,7 @@ buttons.Software.addEventListener('click', () => {
     ShowSubcategories('Software');
 })
 buttons.VersionControl.addEventListener('click', () => {
-    ShowSubcategories('Version Control');
+    ShowSubcategories('Version control');
 })
 
 let subcategoriesDiv = document.getElementById('subcategories');
@@ -56,6 +56,7 @@ function ShowSubcategories(Category) {
     while (subcategoriesDiv.firstChild) {
 subcategoriesDiv.removeChild(subcategoriesDiv.firstChild)
     }
+    linksDiv.classList.add()
     let linksInThisCategory = links.filter(l => l.Category == Category);
 
     const uniqeSubCategories = [];
@@ -111,7 +112,7 @@ function createLinkElementToDisplay(link) {
 
     let linkAdress = document.createElement('a');
     linkAdress.href = link.Linkadress;
-    linkAdress.appendChild(document.createTextNode(link.Title));
+    linkAdress.appendChild(title);
     elementToDisplay.appendChild(linkAdress);
 
     return elementToDisplay;
