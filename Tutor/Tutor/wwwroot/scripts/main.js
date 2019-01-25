@@ -53,6 +53,9 @@ let linksDiv = document.getElementById('links');
 
 
 function ShowSubcategories(Category) {
+    while (subcategoriesDiv.firstChild) {
+subcategoriesDiv.removeChild(subcategoriesDiv.firstChild)
+    }
     let linksInThisCategory = links.filter(l => l.Category == Category);
 
     const uniqeSubCategories = [];
@@ -86,7 +89,9 @@ function onlyUnique(value, index, self) {
 }
 
 function ShowLinks(Category, SubCategory) {
-
+    while (linksDiv.firstChild) {
+        linksDiv.removeChild(linksDiv.firstChild)
+    }
     let linksInThisSubCategory = links.filter(l => l.Category == Category && l.SubCategory == SubCategory);
 
     for (var link of linksInThisSubCategory) {
