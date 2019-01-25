@@ -109,12 +109,19 @@ function createLinkElementToDisplay(link) {
     let elementToDisplay = document.createElement('div');
 
     let title = document.createTextNode(link.Titel);
-    elementToDisplay.appendChild(title);
+    //elementToDisplay.appendChild(title);
+
+    let showDescription = document.createElement('p');
+    showDescription.appendChild(document.createTextNode(link.Description));
+    //showDescription.innerText = link.Description;
 
     let linkAdress = document.createElement('a');
     linkAdress.href = link.Linkadress;
+    linkAdress.target = "_blank";
     linkAdress.appendChild(title);
     elementToDisplay.appendChild(linkAdress);
+    elementToDisplay.appendChild(showDescription);  
+    
 
     return elementToDisplay;
 }

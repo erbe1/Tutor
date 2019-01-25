@@ -1,9 +1,11 @@
-Skriva ut discription
-länkar öppnas i nytt fönster
-gömma "länkdiv" när den inte ska visas. 
-Jumbotronerna anpassar sin storlek 
-Antingen gömma sidebar eller åtminstone ge knapparna samma storlek
-Färgschema
-Byta namn. 
-Embedded videos
-Generellt spacing/marginaler/padding
+
+2 - Jumbotronerna anpassar sin storlek  - M
+
+4 - gömma "länkdiv" när den inte ska visas. 
+5 - ge knapparna samma storlek - E
+6 - Generellt spacing/marginaler/padding
+7 - Färgschema
+8 - Byta namn
+9 - Antingen gömma sidebar eller åtminstone 
+10 - Embedded videos
+11 - Search
