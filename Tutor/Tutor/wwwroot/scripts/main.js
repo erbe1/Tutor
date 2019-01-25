@@ -170,6 +170,19 @@ function createLinkElementToDisplay(link) {
     elementToDisplay.appendChild(linkAdress);
     elementToDisplay.appendChild(showDescription);
 
+    if (link.Embedded) {
+        let embededVideo = document.createElement('div');
+        embededVideo.classList.add("embed-responsive", "embed-responsive-16by9");
+
+        let iframe = document.createElement('iframe');
+        iframe.classList.add("embed-responsive-item");
+
+        let videoId = link.Linkadress.split("?v=")[1];
+
+        iframe.src = "https://www.youtube.com/embed/" + videoId;
+        embededVideo.appendChild(iframe);
+        elementToDisplay.appendChild(embededVideo);
+    }
 
     return elementToDisplay;
 }

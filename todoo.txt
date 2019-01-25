@@ -4,8 +4,6 @@
 7 - Färgschema
 
 9 - Antingen gömma sidebar eller åtminstone 
-10 - Embedded videos
-11 - Search
 
-13 - Länka tillbaka till den vid tryck av "logo"
+
 14 - Lägga till reklamlänk till Academy!
