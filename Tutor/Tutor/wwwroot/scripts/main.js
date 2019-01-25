@@ -1,5 +1,4 @@
-﻿
-function Link(linkadress, title, category, subCategory, tag, description, embedded = false) {
+﻿function Link(linkadress, title, category, subCategory, tag, description, embedded = false) {
     this.Linkadress = linkadress;
     this.Titel = title;
     this.Category = category;
@@ -39,13 +38,13 @@ buttons.Backend.addEventListener('click', () => {
 buttons.Frontend.addEventListener('click', () => {
     ShowSubcategories('Frontend');
 })
-buttons.Frontend.addEventListener('click', () => {
+buttons.DB.addEventListener('click', () => {
     ShowSubcategories('DB');
 })
-buttons.Frontend.addEventListener('click', () => {
+buttons.Software.addEventListener('click', () => {
     ShowSubcategories('Software');
 })
-buttons.Frontend.addEventListener('click', () => {
+buttons.VersionControl.addEventListener('click', () => {
     ShowSubcategories('Version Control');
 })
 
@@ -54,26 +53,36 @@ let linksDiv = document.getElementById('links');
 
 
 function ShowSubcategories(Category) {
-
     let linksInThisCategory = links.filter(l => l.Category == Category);
-    console.log(linksInThisCategory);
-    for (var i = 0; i < linksInThisCategory.length; i++) {
+
+    const uniqeSubCategories = [];
+    const map = new Map();
+    for (const item of linksInThisCategory) {
+        if (!map.has(item.SubCategory)) {
+            map.set(item.SubCategory, true);    // set any value to Map
+            uniqeSubCategories.push(item.SubCategory);
+        }
+    }
+    //let linksInThisCategory = links.filter(l => l.Category);
+    for (let i = 0; i < uniqeSubCategories.length; i++) {
 
         let subcategoryButton = document.createElement('button');
         subcategoryButton.classList.add("btn", "btn-primary", "btn-lg", "m-2");
-        subcategoryButton.appendChild(document.createTextNode(linksInThisCategory[i].SubCategory)); // lägger till en text med subkategorinamnet
+        subcategoryButton.appendChild(document.createTextNode(uniqeSubCategories[i])); // lägger till en text med subkategorinamnet
 
         subcategoriesDiv.appendChild(subcategoryButton);
 
         subcategoryButton.Category = Category;
-        subcategoryButton.SubCategory = linksInThisCategory[i].SubCategory;
-
+        subcategoryButton.SubCategory = uniqeSubCategories[i];
 
         subcategoryButton.addEventListener('click', () => {
-
+            console.log(i);
             ShowLinks(subcategoryButton.Category, subcategoryButton.SubCategory);
         })
     }
+}
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
 }
 
 function ShowLinks(Category, SubCategory) {
@@ -85,7 +94,6 @@ function ShowLinks(Category, SubCategory) {
         let linkElement = createLinkElementToDisplay(link);
 
         linksDiv.appendChild(linkElement);
-
     }
 }
 
@@ -97,10 +105,9 @@ function createLinkElementToDisplay(link) {
     elementToDisplay.appendChild(title);
 
     let linkAdress = document.createElement('a');
-    linkAdress.appendChild(document.createTextNode(link.Linkadress));
+    linkAdress.href = link.Linkadress;
+    linkAdress.appendChild(document.createTextNode(link.Title));
     elementToDisplay.appendChild(linkAdress);
-
-
 
     return elementToDisplay;
 }
