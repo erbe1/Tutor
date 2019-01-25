@@ -76,7 +76,10 @@ logo.addEventListener('click', () => {
 });
 
 function showSearchResults(searchstring) {
-    //linksDiv.classList.add("d-block");
+    subcategoriesDiv.classList.remove("d-block");
+    subcategoriesDiv.classList.add("d-none");
+    aboutThisAwesomePage.classList.remove("d-block");
+    aboutThisAwesomePage.classList.add("d-none");
     ShowLinks(null, null, searchstring);
 }
 
@@ -144,11 +147,18 @@ function ShowLinks(Category = null, SubCategory = null, SearchTag = null) {
 
     let linksInThisSubCategory = links.filter(l => (Category == null || l.Category == Category) && (SubCategory == null || l.SubCategory == SubCategory) && (SearchTag == null || l.Tag.includes(SearchTag)));
 
-    for (let link of linksInThisSubCategory) {
+    if (linksInThisSubCategory.length > 0) {
+        for (let link of linksInThisSubCategory) {
 
-        let linkElement = createLinkElementToDisplay(link);
+            let linkElement = createLinkElementToDisplay(link);
 
-        linksDiv.appendChild(linkElement);
+            linksDiv.appendChild(linkElement);
+        }
+    } else {
+
+        let noResultElement = document.createElement('h3');
+        noResultElement.innerText = "No results";
+        linksDiv.appendChild(noResultElement);
     }
 }
 
