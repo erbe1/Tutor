@@ -54,8 +54,14 @@ let linksDiv = document.getElementById('links');
 
 
 function ShowSubcategories(Category) {
+    subcategoriesDiv.classList.remove("d-none");
+    subcategoriesDiv.classList.add("d-block");
+
+    linksDiv.classList.remove("d-block");
+    linksDiv.classList.add("d-none");
+
     while (subcategoriesDiv.firstChild) {
-subcategoriesDiv.removeChild(subcategoriesDiv.firstChild)
+        subcategoriesDiv.removeChild(subcategoriesDiv.firstChild)
     }
     linksDiv.classList.add()
     let linksInThisCategory = links.filter(l => l.Category == Category);
@@ -94,6 +100,7 @@ function ShowLinks(Category, SubCategory) {
     while (linksDiv.firstChild) {
         linksDiv.removeChild(linksDiv.firstChild)
     }
+    linksDiv.classList.add("d-block");
     let linksInThisSubCategory = links.filter(l => l.Category == Category && l.SubCategory == SubCategory);
 
     for (var link of linksInThisSubCategory) {
