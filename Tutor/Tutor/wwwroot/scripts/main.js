@@ -20,6 +20,7 @@ let links = [
     new Link("https://www.learnjavaonline.org/", "Learn Java", "Backend", "Java", ["Java", "Backend", "Interactive"], "Free interactive Java tutorial"),
     new Link("https://www.codecademy.com/learn/learn-java", "Codeacademy", "Backend", "Java", ["Java", "Backend", "Interactive"], "Fundamental programming concepts, including object-oriented programming (OOP) using Java"),
     new Link("https://www.techbeamers.com/python-tutorial-step-by-step/", "TechBeamers", "Backend", "Python", ["Python", "Backend", "Free"], "This Python tutorial is a one-stop programming guide for all beginners"),
+    new Link("https://code.visualstudio.com/", "Visual Studio Code", "Software", "Software", ["Microsoft", "Visual Studio Code", "Software"], "Free code editing software"),
 ];
 
 
@@ -45,7 +46,7 @@ buttons.Software.addEventListener('click', () => {
     ShowSubcategories('Software');
 })
 buttons.VersionControl.addEventListener('click', () => {
-    ShowSubcategories('Version Control');
+    ShowSubcategories('Version control');
 })
 
 let subcategoriesDiv = document.getElementById('subcategories');
@@ -55,6 +56,9 @@ let linksDiv = document.getElementById('links');
 function ShowSubcategories(Category) {
     while (subcategoriesDiv.firstChild) {
 subcategoriesDiv.removeChild(subcategoriesDiv.firstChild)
+    }
+    while (linksDiv.firstChild) {
+        linksDiv.removeChild(linksDiv.firstChild)
     }
     let linksInThisCategory = links.filter(l => l.Category == Category);
 
